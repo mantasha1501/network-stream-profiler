@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎛️ WireTap // High-Density Network Profiler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lab-viewport">
+        <aside class="registry-column">
+            <div class="brand-block">
+                <span class="matrix-icon">🎛️</span>
+                <div>
+                    <h1>WIRETAP.CORE</h1>
+                    <p class="brand-sub">Network Stream Profiler</p>
+                </div>
+            </div>
+
+            <div class="cache-deck">
+                <span class="column-meta-tag">TARGET CACHE</span>
+                <div class="cache-list" id="historyLogList">
+                    <div class="cache-placeholder">No active sockets logged.</div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="config-column">
+            <header class="config-header">
+                <h2>Stream Protocol Configurator</h2>
+                <div class="status-badge" id="statusPill">
+                    <span class="status-indicator-dot"></span>
+                    <span class="mono-text" id="statusText">OFFLINE</span>
+                </div>
+            </header>
+
+            <div class="control-grid">
+                <section class="stark-card">
+                    <h3><span class="matrix-num">01</span> Handshake Routing Layer</h3>
+                    <div class="stark-input-group">
+                        <input type="text" id="wsUrlInput" value="wss://echo.websocket.org" placeholder="wss://host.domain:port">
+                        <button class="stark-btn" id="connectBtn" onclick="toggleNetworkSocketConnection()">Engage</button>
+                    </div>
+                    <p class="stark-hint">Provide an active SSL-secured WebSocket gateway endpoint (`wss://`).</p>
+                </section>
+
+                <section class="stark-card">
+                    <h3><span class="matrix-num">02</span> Data Frame Transmitter</h3>
+                    <div class="textarea-container">
+                        <label for="payloadInput">Outbound Message Block (JSON / Plaintext)</label>
+                        <textarea id="payloadInput" placeholder='{ "status": "ping", "buffer_clear": false }' disabled></textarea>
+                    </div>
+                    <button class="stark-btn action-btn-send" id="sendBtn" onclick="transmitSocketPayload()" disabled>Transmit Packet Frame</button>
+                </section>
+            </div>
+
+            <div class="architecture-footnote">
+                <strong>System Constraint Node:</strong> Active WebSocket pipelines are mounted cleanly to the client thread heap. Captured byte-streams remain unbuffered outside temporary memory targets.
+            </div>
+        </main>
+
+        <section class="interceptor-column">
+            <div class="interceptor-header">
+                <h3><span class="matrix-num green-num">03</span> LIVE PACKET INTERCEPTOR FEED</h3>
+                <button class="stark-flush-btn" onclick="clearStreamLogs()">Flush Cache</button>
+            </div>
+
+            <div class="stream-terminal-box">
+                <div class="packet-feed" id="terminalPacketFeed">
+                    <div class="feed-row system-row">[IDLE]: Interception lines static. Open network socket bridge to stream frames.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

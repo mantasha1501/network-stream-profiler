@@ -1,0 +1,375 @@
+:root {
+    /* SURGICAL LIGHT-LABORATORY MATRIX COLORS */
+    --bg-base: #F3F4F6;
+    --bg-surface: #FFFFFF;
+    --bg-interior: #FAFAFA;
+    --border-clean: #E5E7EB;
+    --border-industrial: #111827;
+    
+    --text-pure-black: #111827;
+    --text-slate-gray: #4B5563;
+    --text-ghost-gray: #9CA3AF;
+    
+    /* UTILITY ACCENT HARD COLORS */
+    --signal-blue: #2563EB;
+    --signal-blue-bg: #EFF6FF;
+    --signal-green: #059669;
+    --signal-green-bg: #ECFDF5;
+    --signal-red: #DC2626;
+    --signal-red-bg: #FEF2F2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-pure-black);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.lab-viewport {
+    display: grid;
+    grid-template-columns: 260px 48fr 52fr; /* HARD 3-COLUMN LAYOUT STRUCTURE */
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-base);
+}
+
+/* COLUMN 1: STARK REGISTRY OVERVIEW */
+.registry-column {
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-clean);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.brand-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.matrix-icon {
+    font-size: 18px;
+    color: var(--text-pure-black);
+    background-color: var(--bg-base);
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.brand-block h1 {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+.brand-sub {
+    font-size: 10px;
+    color: var(--text-slate-gray);
+    margin-top: 1px;
+}
+
+.cache-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.column-meta-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-ghost-gray);
+    letter-spacing: 0.5px;
+}
+
+.cache-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+}
+
+.cache-item {
+    background-color: var(--bg-interior);
+    border: 1px solid var(--border-clean);
+    padding: 10px 12px;
+    border-radius: 4px;
+    color: var(--text-slate-gray);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.cache-item:hover {
+    border-color: var(--border-industrial);
+    color: var(--text-pure-black);
+}
+
+.cache-placeholder {
+    font-size: 11px;
+    color: var(--text-ghost-gray);
+    margin-top: 12px;
+}
+
+/* COLUMN 2: INDUSTRIAL CENTER PANEL CONFIG */
+.config-column {
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-clean);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.config-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.config-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-base);
+    border: 1px solid var(--border-clean);
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.status-indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-ghost-gray);
+}
+
+.mono-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-slate-gray);
+}
+
+/* Active State Styles */
+.status-connected {
+    background-color: var(--signal-green-bg);
+    border-color: var(--signal-green);
+}
+
+.status-connected .status-indicator-dot {
+    background-color: var(--signal-green);
+}
+
+.status-connected .mono-text {
+    color: var(--signal-green);
+}
+
+.control-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.stark-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.stark-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-pure-black);
+}
+
+.matrix-num {
+    font-family: 'Space Mono', monospace;
+    color: var(--signal-blue);
+    background-color: var(--signal-blue-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+.green-num {
+    color: var(--signal-green);
+    background-color: var(--signal-green-bg);
+}
+
+.stark-input-group {
+    display: flex;
+    gap: 12px;
+}
+
+.stark-input-group input {
+    flex: 1;
+    background-color: var(--bg-interior);
+    border: 1px solid var(--border-clean);
+    border-radius: 4px;
+    padding: 12px 14px;
+    color: var(--text-pure-black);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    outline: none;
+}
+
+.stark-input-group input:focus {
+    border-color: var(--border-industrial);
+}
+
+.stark-btn {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: var(--border-industrial);
+    color: var(--bg-surface);
+    border: none;
+    padding: 0 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stark-btn:hover {
+    opacity: 0.9;
+}
+
+.stark-hint {
+    font-size: 11px;
+    color: var(--text-slate-gray);
+}
+
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.textarea-container label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-slate-gray);
+}
+
+.textarea-container textarea {
+    background-color: var(--bg-interior);
+    border: 1px solid var(--border-clean);
+    border-radius: 4px;
+    padding: 14px;
+    height: 140px;
+    color: var(--text-pure-black);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    resize: none;
+}
+
+.textarea-container textarea:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-btn-send {
+    background-color: var(--signal-blue);
+    width: 100%;
+    padding: 14px;
+}
+
+.action-btn-send:disabled {
+    background-color: var(--border-clean);
+    color: var(--text-ghost-gray);
+    cursor: not-allowed;
+}
+
+.architecture-footnote {
+    margin-top: auto;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text-slate-gray);
+    background-color: var(--bg-interior);
+    border-left: 3px solid var(--border-industrial);
+    padding: 14px 16px;
+}
+
+/* COLUMN 3: SURGICAL LOG DATA FEED */
+.interceptor-column {
+    background-color: var(--bg-interior);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.interceptor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-clean);
+    padding-bottom: 14px;
+}
+
+.interceptor-header h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.stream-terminal-box {
+    flex: 1;
+    overflow-y: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    padding-right: 8px;
+}
+
+.feed-row {
+    margin-bottom: 8px;
+    word-break: break-all;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.03);
+    padding-bottom: 4px;
+}
+
+.system-row { color: var(--text-slate-gray); }
+.inbound-row { color: var(--signal-green); font-weight: 700; }
+.outbound-row { color: var(--signal-blue); }
+.error-row { color: var(--signal-red); font-weight: 700; }
+
+.stark-flush-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    color: var(--text-ghost-gray);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.stark-flush-btn:hover {
+    color: var(--text-pure-black);
+}
